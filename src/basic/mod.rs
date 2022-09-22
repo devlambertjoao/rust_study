@@ -1,6 +1,7 @@
+
 pub mod basic {
     use std::io;
-
+    
     pub fn init() {
         println!("Guess the number!");
         println!("Please input your guess.");
