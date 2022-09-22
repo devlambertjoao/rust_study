@@ -1,32 +1,18 @@
-use rand::Rng;
-use std::cmp::Ordering;
-use std::io;
+pub mod guess_the_number;
+pub mod datatype_and_variables;
 
 fn main() {
-    println!("Guess the number!");
 
-    let secret_number = rand::thread_rng().gen_range(1..=10);
+    let x = 22;
 
-    loop {
-        println!("Please input your guess");
+    let x = x + 1;
 
-        let mut guess = String::new(); //Mutable
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small"),
-            Ordering::Greater => println!("Too big"),
-            Ordering::Equal => {
-                println!("You win");
-                break;
-            }
-        }
+    {
+        let x = x * 2;
+        println!("The value of x in the inner scop is: {x}");
     }
+
+    println!("The value of x is: {x}");
+
+    guess_the_number::game();
 }
